@@ -3,6 +3,7 @@ from tkinter.scrolledtext import ScrolledText
 import threading
 import socket
 import queue
+import time
 # Use tkinter.scrolledtext module for textbox+scrollbar
 
 class App:
@@ -10,37 +11,27 @@ class App:
         self.master = master
         master.title("Socket Reader")
 
-        self.label_text = tk.StringVar()
-        self.label = tk.Label(master, textvariable = self.label_text)
-        self.label.pack()
         self.text_area = ScrolledText(master, width=100, height=10)
-        self.text_area.configure(state='disabled')
         self.text_area.pack(padx=10, pady=10)
-        self.typing_area = ScrolledText(master, width=80, height=5, pady=5)
-        self.typing_area.pack()
+        self.typing_area = ScrolledText(master, width=80, height=5)
+        self.typing_area.pack(padx=10, pady=10)
 
-        self.send_button = tk.Button(master, text='Submit', command=lambda: self.send_text())
+        self.send_button = tk.Button(master, text='Send', command=lambda: self.send_text())
         self.send_button.pack(side=tk.RIGHT, padx=(0, 10), pady=(0, 10))
 
         self.data_queue = queue.Queue()
         self.running = True
 
+        host = '127.0.0.1'  # Or "localhost"
+        port = 5000
+
+        global s
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((host, port))
+        self.username = None
+
         self.receive_thread = threading.Thread(target=self.read_socket)
-        self.receive_thread.daemon = True  # Allow program to exit even if thread is running
         self.receive_thread.start()
-        self.send_thread = threading.Thread(target=self.send_text)
-        self.text_area.insert(tk.END, 'Please enter your username')
-
-        self.text_area.pack_forget()
-        self.typing_area.pack_forget()
-        self.send_button.pack_forget()
-
-        self.frame = tk.Frame(master, bg='grey')
-        self.frame.place(relx=.5, rely=.5)
-        self.username_entry = tk.Entry(self.frame, width=15)
-        self.username_entry.pack(anchor='center')
-        self.username_submit = tk.Button(self.frame, text='Submit Username',command=lambda: self.send_username())
-        self.username_submit.pack(anchor='center')
 
         self.update_gui()
 
@@ -51,54 +42,33 @@ class App:
         self.text_area.see(tk.END)  # Autoscroll to the bottom
 
     def send_text(self):
-        host = '127.0.0.1'  # Or "localhost"
-        port = 5000
-        print(self.typing_area.get("1.0", tk.END))
-        try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect((host, port))
-                s.send(self.typing_area.get("1.0", tk.END).encode())
-                self.typing_area.delete("1.0", tk.END)
-        except Exception as e:
-             self.data_queue.put(f"Error: {e}")
-
-    def send_username(self):
-        host = '127.0.0.1'  # Or "localhost"
-        port = 5000
-        text_string = self.username_entry.get()
-        text_string = '{Username-Set} ' + self.username_entry.get()
-        try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect((host, port))
-                s.send(text_string.encode())
-                self.frame.destroy()
-                self.text_area.pack()
-                self.typing_area.pack()
-                self.send_button.pack()
-        except Exception as e:
-            self.data_queue.put(f"Error: {e}")
+        if self.running is True:
+            msg = self.typing_area.get("1.0", tk.END)
+            if msg[:-1] == "{QUIT-CHAT}":
+                self.typing_area.pack_forget()
+                self.send_button.pack_forget()
+            s.send(bytes(msg[:-1], 'utf8'))
+            self.typing_area.delete("1.0", tk.END)
+            if self.username is not None:
+                global master
+                self.username = msg
+                print(self.username)
+                self.master.title(f'User {self.username} in Chatroom')
 
     def read_socket(self):
-        host = '127.0.0.1'  # Or "localhost"
-        port = 5000         # Replace with your port
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.connect((host, port))
         try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect((host, port))
-                while self.running:
-                    data = s.recv(1024)
-                    self.append_text(data.decode())
-                    if not data:
-                        break
-                    self.data_queue.put(data.decode())
+            while self.running is True:
+                data = s.recv(1024)
+                self.append_text(data.decode('utf-8'))
+                if not data:
+                    break
+                self.data_queue.put(data.decode('utf-8'))
         except Exception as e:
              self.data_queue.put(f"Error: {e}")
 
     def update_gui(self):
         try:
             data = self.data_queue.get_nowait()
-            #self.label_text.set(data)
         except queue.Empty:
             pass  # No data yet, ignore
         if self.running:
@@ -106,11 +76,14 @@ class App:
 
     def close(self):
         self.running = False
+        s.send('{QUIT-CHAT}'.encode('utf-8'))
+        time.sleep(.1)
+        s.close()
         self.master.destroy()
 
 
 root = tk.Tk()
-root.geometry("500x300")
+root.geometry("500x400")
 app = App(root)
 root.protocol("WM_DELETE_WINDOW", app.close) # Handle window close event
 root.mainloop()
