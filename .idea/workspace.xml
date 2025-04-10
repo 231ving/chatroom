@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24da5231-de1c-4368-b534-ad4380436744" name="Changes" comment="Struggling with just getting localhost to run">
+    <list default="true" id="24da5231-de1c-4368-b534-ad4380436744" name="Changes" comment="Localhost and multiple clients working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientCode/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCode/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerCode/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerCode/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCode/client3.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCode/client3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "231ving"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;231ving&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/231ving/chatroom.git",
-    "accountId": "a56bda9c-df1b-4cad-8369-bf7efd1b35ca"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/231ving/chatroom.git&quot;,
+    &quot;accountId&quot;: &quot;a56bda9c-df1b-4cad-8369-bf7efd1b35ca&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -49,11 +49,13 @@
   "keyToString": {
     "Python.client.executor": "Run",
     "Python.client2.executor": "Run",
+    "Python.client3.executor": "Run",
     "Python.client_code_on_net.executor": "Run",
     "Python.client_test.executor": "Run",
     "Python.server.executor": "Run",
     "Python.server_code_on_net.executor": "Run",
     "Python.server_test.executor": "Run",
+    "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/phuc2/PycharmProjects/ChatroomProject/ClientCode"
@@ -96,11 +98,28 @@
       <option name="project" value="LOCAL" />
       <updated>1744148152763</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Localhost and multiple clients working">
+      <option name="closed" value="true" />
+      <created>1744156769331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744156769331</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Localhost and multiple clients working">
+      <option name="closed" value="true" />
+      <created>1744317577605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744317577605</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Struggling with just getting localhost to run" />
-    <option name="LAST_COMMIT_MESSAGE" value="Struggling with just getting localhost to run" />
+    <MESSAGE value="Localhost and multiple clients working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Localhost and multiple clients working" />
   </component>
 </project>
