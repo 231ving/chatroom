@@ -7,7 +7,9 @@
     <list default="true" id="24da5231-de1c-4368-b534-ad4380436744" name="Changes" comment="Localhost and multiple clients working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientCode/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCode/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCode/client2.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCode/client2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientCode/client3.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCode/client3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerCode/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerCode/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,22 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.client.executor": "Run",
-    "Python.client2.executor": "Run",
-    "Python.client3.executor": "Run",
-    "Python.client_code_on_net.executor": "Run",
-    "Python.client_test.executor": "Run",
-    "Python.server.executor": "Run",
-    "Python.server_code_on_net.executor": "Run",
-    "Python.server_test.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/phuc2/PycharmProjects/ChatroomProject/ClientCode"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client_code_on_net.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server_code_on_net.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/phuc2/PycharmProjects/ChatroomProject/ClientCode&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\phuc2\PycharmProjects\ChatroomProject\ClientCode" />
@@ -114,8 +116,27 @@
       <option name="project" value="LOCAL" />
       <updated>1744317577605</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Localhost and multiple clients working">
+      <option name="closed" value="true" />
+      <created>1744318307683</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744318307683</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Struggling with just getting localhost to run" />
